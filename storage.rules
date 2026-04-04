@@ -1,0 +1,22 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Публичный доступ к аудио файлам для флоу
+    match /flow-audio/{allPaths=**} {
+      allow read: if true;
+      allow write: if true; // Временно для тестирования
+    }
+    
+    // Публичный доступ к аудио файлам
+    match /audio/{allPaths=**} {
+      allow read: if true;
+      allow write: if true; // Временно для тестирования
+    }
+    
+    // Остальные файлы - временно открыто для тестирования
+    match /{allPaths=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
