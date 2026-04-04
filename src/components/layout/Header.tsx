@@ -6,7 +6,7 @@ import { Home, BookOpen, BarChart3, User, Settings, Heart, Shield } from 'lucide
 import { cn } from '@/utils/cn';
 
 const navigation = [
-  { name: 'Главная', href: '/', icon: Home },
+  { name: 'Главная', href: '/home', icon: Home },
   { name: 'Уроки', href: '/lessons', icon: BookOpen },
   { name: 'Прогресс', href: '/progress', icon: BarChart3 },
   { name: 'Профиль', href: '/profile', icon: User },
@@ -27,7 +27,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 pt-4 sm:pt-6">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           {/* Логотип */}
-          <Link href="/" className="flex items-center space-x-2 z-10">
+          <Link href="/home" className="flex items-center space-x-2 z-10">
             <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" />
             <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
               QuitFree.ai

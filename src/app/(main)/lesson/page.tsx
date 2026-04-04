@@ -91,7 +91,7 @@ function LessonContent() {
     if (config.hasAnswers) {
       router.push(`/question?id=${node.id}`);
     } else if (node.type === 'welcome') {
-      router.push('/');
+      router.push('/home');
     } else {
       router.push(`/lesson?id=${node.id}`);
     }
@@ -115,7 +115,7 @@ function LessonContent() {
       if (nextNode) {
         navigateToNode(nextNode);
       } else {
-        router.push('/');
+        router.push('/home');
       }
     } catch (error) {
       console.error('Ошибка перехода:', error);

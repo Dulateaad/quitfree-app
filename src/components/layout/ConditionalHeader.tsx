@@ -7,11 +7,10 @@ export function ConditionalHeader() {
   const pathname = usePathname();
   
   // Скрываем Header на страницах главной, login, lesson, question
-  const hideHeader = pathname === '/' ||
+  const hideHeader = pathname === '/home' ||
                      pathname === '/login' || 
                      pathname === '/lesson' || 
-                     pathname === '/question' ||
-                     pathname?.startsWith('/waitlist');
+                     pathname === '/question';
 
   if (hideHeader) {
     return null;

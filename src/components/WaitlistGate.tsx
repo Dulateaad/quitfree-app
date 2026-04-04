@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useWaitlistAuth } from '@/context/waitlist-auth';
 
-const PUBLIC_PATHS = ['/login', '/waitlist'];
+const PUBLIC_PATHS = ['/login'];
 
 export function WaitlistGate({ children }: { children: React.ReactNode }) {
   const { isAuthed, isLoading } = useWaitlistAuth();

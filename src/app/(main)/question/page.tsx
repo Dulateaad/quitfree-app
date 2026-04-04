@@ -37,7 +37,7 @@ function QuestionContent() {
     if (config.hasAnswers) {
       router.push(`/question?id=${node.id}`);
     } else if (node.type === 'welcome') {
-      router.push('/');
+      router.push('/home');
     } else {
       router.push(`/lesson?id=${node.id}`);
     }

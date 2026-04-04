@@ -14,7 +14,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   if (isAuthed) {
-    router.replace('/');
+    router.replace('/home');
     return null;
   }
 
@@ -26,7 +26,7 @@ export default function LoginPage() {
     try {
       const ok = await login(email);
       if (ok) {
-        router.replace('/');
+        router.replace('/home');
       } else {
         setError('This email is not on the waitlist. Sign up first!');
       }
@@ -63,7 +63,7 @@ export default function LoginPage() {
               <p className="text-red-400 text-sm text-center">{error}</p>
               <button
                 type="button"
-                onClick={() => router.push('/waitlist')}
+                onClick={() => router.push('/')}
                 className="text-orange-400 text-sm underline underline-offset-2 hover:text-orange-300 transition-colors"
               >
                 Join the waitlist
