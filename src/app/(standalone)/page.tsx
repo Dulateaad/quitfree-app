@@ -48,6 +48,11 @@ export default function WaitlistPage() {
       setStatus('success');
       setMessage("You're on the list!");
       event('waitlist_signup', { method: 'email' });
+      fetch('/api/waitlist-welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim() }),
+      }).catch(() => {});
     } catch (err) {
       setStatus('error');
       setMessage('Something went wrong. Please try again.');
