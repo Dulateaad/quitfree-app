@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { WaitlistAuthProvider } from '@/context/waitlist-auth';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -36,7 +37,9 @@ export default function RootLayout({
       </head>
       <body className="bg-black text-white">
         <GoogleAnalytics />
-        {children}
+        <WaitlistAuthProvider>
+          {children}
+        </WaitlistAuthProvider>
       </body>
     </html>
   );
