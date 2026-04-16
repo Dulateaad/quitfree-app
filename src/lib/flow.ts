@@ -1,9 +1,12 @@
 import { getFlowNodes, getFlowNode } from './admin/flow';
 import { FlowNode, FlowNodeType, NODE_TYPE_CONFIG } from '@/types/flow';
 
+/** Первый узел единого флоу (сид из админки). Fallback: welcome для старых данных. */
+export const FLOW_ROOT_NODE_ID = 'qf-flow-start';
+
 export async function getStartNode(): Promise<FlowNode | null> {
   const nodes = await getFlowNodes();
-  return nodes.find((n) => n.type === 'welcome') || null;
+  return nodes.find((n) => n.id === FLOW_ROOT_NODE_ID) || nodes.find((n) => n.type === 'welcome') || null;
 }
 
 export async function getNextNode(currentNode: FlowNode): Promise<FlowNode | null> {
@@ -64,7 +67,8 @@ export async function getMainFlowChain(): Promise<string[]> {
   const chain: string[] = [];
   const visited = new Set<string>();
 
-  let current: FlowNode | undefined = nodes.find(n => n.type === 'welcome');
+  let current: FlowNode | undefined =
+    nodes.find((n) => n.id === FLOW_ROOT_NODE_ID) || nodes.find((n) => n.type === 'welcome');
   while (current && !visited.has(current.id)) {
     visited.add(current.id);
     chain.push(current.id);

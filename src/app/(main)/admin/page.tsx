@@ -273,8 +273,8 @@ export default function AdminPage() {
         <div className="mt-8 p-4 bg-purple-900/30 rounded-xl border border-purple-500/30">
           <h3 className="text-purple-300 font-medium mb-2">💡 Подсказка</h3>
           <p className="text-gray-300 text-sm">
-            Первое загруженное аудио с типом "welcome" будет автоматически воспроизводиться 
-            на главной странице приложения.
+            Старт приложения — узел <code className="text-purple-200">qf-flow-start</code> (контент «Метод cookie…»).
+            Дальше идёт единый флоу: онбординг → «День X» → трек-чек. Загрузите аудио в узлы с типом приветствие / правило / тезис.
           </p>
         </div>
       </div>
